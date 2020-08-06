@@ -1,0 +1,15 @@
+{% extends "userprofile/base.html" %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div>
+        {% for user in users %}
+            <a class="list-margin" href="{% url 'userprofile:detail' user.id %}">{{ user.email }}, {{ user.first_name }}, {{ user.last_name }}</a>
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}

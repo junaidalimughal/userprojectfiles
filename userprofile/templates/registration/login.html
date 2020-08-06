@@ -1,0 +1,23 @@
+{% extends "userprofile/base.html" %}
+
+{% block title %}<title>Login</title>{% endblock %}
+
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+<h2>Login</h2>
+    <form method="POST">{% csrf_token %}
+        <div class="form-group form-margin">
+            {{ form|crispy }}
+
+            <div class="d-flex justify-content-between">
+                <a href="">Forgot Password</a>
+                <input type="submit" name="submit" value="Login" class="btn btn-primary btn-block">
+            </div>
+        </div>
+    </form>
+{% endblock %}

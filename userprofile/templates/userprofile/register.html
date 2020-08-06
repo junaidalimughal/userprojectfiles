@@ -1,0 +1,26 @@
+{% extends "userprofile/base.html" %}
+
+{% block css %}
+    {% load crispy_forms_tags %}
+    {% load static %}    
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        
+    <h2>Create account -- For Sir Syed Pilot School System</h2>
+    <form method="POST">{% csrf_token %}
+        <div class="form-group form-margin">
+            {{ form|crispy }} 
+            <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block"/>
+        </div>
+    </form>
+
+{% endblock %}
